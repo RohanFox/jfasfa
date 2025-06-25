@@ -30,8 +30,8 @@ jobs:
           rm -rf $HOME/.config/pip $HOME/.pip || true
         shell: bash
 
-      - name: Install dependencies (secure)
-        run: pip install --no-index -r requirements.txt
+      - name: Install dependencies
+        run: pip install --no-index --find-links=vendor -r requirements.txt
         env:
           PIP_INDEX_URL: ""
           PIP_EXTRA_INDEX_URL: ""
