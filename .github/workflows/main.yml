@@ -1,6 +1,9 @@
 name: SecDim
 
 on:
+  push:
+    branches:
+      - master
   pull_request:
     branches:
       - master
@@ -10,13 +13,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@60edb5dd545a775178f52524783378180af0d1f8
         with:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+        run: pip install --no-index -r requirements.txt
+        env:
+          PIP_INDEX_URL: ""
+          PIP_EXTRA_INDEX_URL: ""
