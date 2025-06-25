@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+        uses: actions/checkout@f4f57f86da673f803776e7ae64a1e3516f1bbaaf
         with:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@60edb5dd545a775178f52524783378180af0d1f8
+        uses: actions/setup-python@8a2c65df0f74198ef4f15c12be7dbe38551b20e7
         with:
           python-version: '3.11'
 
